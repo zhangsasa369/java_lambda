@@ -8,6 +8,8 @@ public class User {
 	String password;
 	String date;
 
+	String ssString;
+
 	public String getName() {
 		return name;
 	}
@@ -30,6 +32,14 @@ public class User {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public String getSsString() {
+		return ssString;
+	}
+
+	public void setSsString(String ssString) {
+		this.ssString = ssString;
 	}
 
 	public static void main(String[] args) {

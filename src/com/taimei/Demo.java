@@ -3,34 +3,73 @@ package com.taimei;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Demo {
 	public static void main(String[] args) {
+
+		double a = 1f / 3f;
+		System.err.println(Math.round(a * 100) * 0.01);
+
 		//lanmda初次尝试
-		List<String> list = new ArrayList<String>();
-		for (int i = 0; i < 100; i++) {
-			list.add(i + "");
+		/*	List<String> list = new ArrayList<String>();
+			for (int i = 0; i < 100; i++) {
+				list.add(i + "");
+			}
+			List<Integer> result = list.stream().filter(str -> Integer.valueOf(str) > 90).map(String::hashCode).collect(Collectors.toList());
+			result.forEach(str -> System.err.println(str));
+			int re = Stream.iterate(1, num -> num + 1).limit(100).reduce(0, (a, b) -> a + b);
+			System.out.println(re);
+			int size = list.stream().filter(str -> Integer.valueOf(str) > 90).mapToInt(String::hashCode).sum();
+			System.out.println(size);
+			//测试普通for循环和stream性能
+			List<User> users = new ArrayList<User>();
+			List<User2> ll = new ArrayList<User2>();
+			User2 user2 = null;
+			for (int i = 0; i < 10000000; i++) {
+				user2 = new User2();
+				user2.setDate("2016-01-01");
+				user2.setName("1");
+				user2.setPassword("1");
+				ll.add(user2);
+			}
+			cc1(users, ll);
+			cc2(users, ll);*/
+		/*List<User> users = new ArrayList<User>();
+		User user = null;
+		for (int i = 0; i < 10; i++) {
+			user = new User();
+			user.setDate("2016-01-01");
+			user.setName(i + "");
+			user.setPassword("1");
+			users.add(user);
 		}
-		List<Integer> result = list.stream().filter(str -> Integer.valueOf(str) > 90).map(String::hashCode).collect(Collectors.toList());
-		result.forEach(str -> System.err.println(str));
-		int re = Stream.iterate(1, num -> num + 1).limit(100).reduce(0, (a, b) -> a + b);
-		System.out.println(re);
-		int size = list.stream().filter(str -> Integer.valueOf(str) > 90).mapToInt(String::hashCode).sum();
-		System.out.println(size);
-		//测试普通for循环和stream性能
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("2", "dsfsfs");
+		map.put("3", "2132");
+		map.put("5", "rrerert");
+		
+		users = users.stream().map(o -> {
+			if (map.get(o.getName()) != null) {
+				o.setSsString(map.get(o.getName()).toString());
+			}
+			return o;
+		}).collect(Collectors.toList());
+		
+		for (User user2 : users) {
+			System.out.println(user2.getSsString() + "====================");
+		}*/
+
 		List<User> users = new ArrayList<User>();
-		List<User2> ll = new ArrayList<User2>();
-		User2 user2 = null;
-		for (int i = 0; i < 10000000; i++) {
-			user2 = new User2();
-			user2.setDate("2016-01-01");
-			user2.setName("1");
-			user2.setPassword("1");
-			ll.add(user2);
+		User user = null;
+		for (int i = 0; i < 10; i++) {
+			user = new User();
+			user.setDate("2016-01-01");
+			user.setName(i + "");
+			user.setPassword("1");
+			users.add(user);
 		}
-		cc1(users, ll);
-		cc2(users, ll);
+		System.out.println(users.size());
 
 	}
 
